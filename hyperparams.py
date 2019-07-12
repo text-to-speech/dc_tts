@@ -32,16 +32,16 @@ class Hyperparams:
     attention_win_size = 3
 
     # data
-    data = "/data/private/voice/LJSpeech-1.0"
+    data = "/data/private/voice/crt"
     # data = "/data/private/voice/kate"
     test_data = 'harvard_sentences.txt'
-    vocab = "PE abcdefghijklmnopqrstuvwxyz'.?" # P: Padding, E: EOS.
+    vocab = "PE абвгдежзийклмнопрстуфхцчшщъыьэюя!.?" # P: Padding, E: EOS. #ё?
     max_N = 180 # Maximum number of characters.
     max_T = 210 # Maximum number of mel frames.
 
     # training scheme
     lr = 0.001 # Initial learning rate.
-    logdir = "logdir/LJ01"
+    logdir = "logdir/crt"
     sampledir = 'samples'
-    B = 32 # batch size
+    B = 8 # batch size
     num_iterations = 2000000
