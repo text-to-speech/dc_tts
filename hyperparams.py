@@ -32,16 +32,16 @@ class Hyperparams:
     attention_win_size = 3
 
     # data
-    data = "/data/private/voice/crt"
+    data = '/content/gdrive/My Drive/russian/crt/'
     # data = "/data/private/voice/kate"
-    test_data = 'harvard_sentences.txt'
+    test_data = 'harvard_sentences.txt' #TODO
     vocab = "PE абвгдежзийклмнопрстуфхцчшщъыьэюя!.?" # P: Padding, E: EOS. #ё?
     max_N = 180 # Maximum number of characters.
     max_T = 210 # Maximum number of mel frames.
 
     # training scheme
     lr = 0.001 # Initial learning rate.
-    logdir = "logdir/crt"
-    sampledir = 'samples'
+    logdir = data + "logdir/"
+    sampledir = data + 'samples/'
     B = 8 # batch size
     num_iterations = 2000000
