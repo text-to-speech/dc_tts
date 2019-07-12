@@ -63,7 +63,7 @@ def load_data(mode="train"):
             lines = codecs.open(transcript, 'r', 'utf-8').readlines()
             for line in lines:
                 fname, text = line.strip().split("|")
-                fpath = os.path.join(hp.data, "wav", fname + ".wav")
+                fpath = os.path.join(hp.data, fname + ".wav")
                 fpaths.append(fpath)
 
                 text += "E"  # E: EOS
