@@ -32,7 +32,7 @@ class Hyperparams:
     attention_win_size = 3
 
     # data
-    data = '/content/drive/My Drive/russian/crt/'
+    data = '/content/drive/My Drive/Research/russian/crt/'
     # data = "/data/private/voice/kate"
     test_data = 'harvard_sentences.txt' #TODO
     vocab = "PE абвгдежзийклмнопрстуфхцчшщъыьэюя!.?" # P: Padding, E: EOS. #ё?
