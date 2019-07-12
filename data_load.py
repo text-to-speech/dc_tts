@@ -56,6 +56,23 @@ def load_data(mode="train"):
                 texts.append(np.array(text, np.int32).tostring())
 
             return fpaths, text_lengths, texts
+        
+        elif "crt" in hp.data:
+            fpaths, text_lengths, texts = [], [], []
+            transcript = os.path.join(hp.data, 'transcript.csv')
+            lines = codecs.open(transcript, 'r', 'utf-8').readlines()
+            for line in lines:
+                fname, text = line.strip().split("|")
+                fpath = os.path.join(hp.data, "wav", fname + ".wav")
+                fpaths.append(fpath)
+
+                text += "E"  # E: EOS
+                text = [char2idx[char] for char in text]
+                text_lengths.append(len(text))
+                texts.append(np.array(text, np.int32).tostring())
+
+            return fpaths, text_lengths, texts
+        
         else: # nick or kate
             # Parse
             fpaths, text_lengths, texts = [], [], []
