@@ -121,6 +121,7 @@ def get_batch():
         if hp.prepro:
             def _load_spectrograms(fpath):
                 #fname = os.path.basename(fpath)
+                print (fpath, type(fpath))
                 mel = "{}".format(fpath.replace("wav/", "mels/").replace("wav", "npy"))
                 mag = "{}".format(fpath.replace("wav/", "mags/").replace("wav", "npy"))
                 return fname, np.load(mel), np.load(mag)
