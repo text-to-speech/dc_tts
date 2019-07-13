@@ -34,7 +34,7 @@ class Hyperparams:
     # data
     data = '/content/drive/My Drive/Research/russian/crt/'
     # data = "/data/private/voice/kate"
-    test_data = 'harvard_sentences.txt' #TODO
+    test_data = 'test.txt'
     vocab = 'PE абвгдежзийклмнопрстуфхцчшщъыьэюя!.?"-,:;()' # P: Padding, E: EOS. #ё?
     max_N = 180 # Maximum number of characters.
     max_T = 210 # Maximum number of mel frames.
