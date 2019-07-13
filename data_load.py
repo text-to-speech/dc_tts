@@ -122,7 +122,6 @@ def get_batch():
             def _load_spectrograms(fpath):
                 fname = os.path.basename(fpath)
                 _path = fpath.decode("utf-8") 
-                print (_path, type(_path))
                 mel = _path.replace("wav/", "mels/").replace("wav", "npy")
                 mag = _path.replace("wav/", "mags/").replace("wav", "npy")
                 return fname, np.load(mel), np.load(mag)
