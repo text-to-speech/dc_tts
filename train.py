@@ -140,7 +140,7 @@ if __name__ == '__main__':
 
     g = Graph(num=num); print("Training Graph loaded")
 
-    logdir = hp.logdir + "-" + str(num)
+    logdir = hp.logdir + str(num)
     sv = tf.train.Supervisor(logdir=logdir, save_model_secs=0, global_step=g.global_step)
     with sv.managed_session() as sess:
         while 1:
@@ -148,7 +148,7 @@ if __name__ == '__main__':
                 gs, _ = sess.run([g.global_step, g.train_op])
 
                 # Write checkpoint files at every 1k steps
-                if gs % 1000 == 0:
+                if gs % 10000 == 0:
                     sv.saver.save(sess, logdir + '/model_gs_{}'.format(str(gs // 1000).zfill(3) + "k"))
 
                     if num==1:
