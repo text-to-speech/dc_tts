@@ -121,7 +121,7 @@ def get_batch():
         if hp.prepro:
             def _load_spectrograms(fpath):
                 fname = os.path.basename(fpath)
-                num = int(fname.split('.')[0].replace('usr', ''))
+                num = int(fname.decode("utf-8").split('.')[0].replace('usr', ''))
                 folder_num = num // 100
                 _path = fpath.decode("utf-8") 
                 mel = _path.replace("wav/", "mels/"+str(folder_num)+'/').replace("wav", "npy")
