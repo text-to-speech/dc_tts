@@ -32,10 +32,10 @@ class Hyperparams:
     attention_win_size = 3
 
     # data
-    data = '/content/drive/My Drive/Research/russian/crt/'
+    data = '/content/drive/My Drive/Research/songs/data/training_data/small_wavs'
     # data = "/data/private/voice/kate"
     test_data = 'test.txt'
-    vocab = 'PE абвгдежзийклмнопрстуфхцчшщъыьэюя!.?"-,:;()' # P: Padding, E: EOS. #ё?
+    vocab = 'PE abcdefghijklmnopqrstuvwxyz.?!."-,:;()' # P: Padding, E: EOS. #ё?
     max_N = 180 # Maximum number of characters.
     max_T = 210 # Maximum number of mel frames.
 
