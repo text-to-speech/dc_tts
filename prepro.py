@@ -23,7 +23,7 @@ for fpath in tqdm.tqdm(fpaths):
     #os.mkdir(hp.data+"mels", exist_ok=True)
     #os.mkdir(hp.data+"mags", exist_ok=True)
         
-    num = int(fname.decode("utf-8").split('.')[0].replace('usr', ''))
+    num = int(fname.split('.')[0].replace('usr', ''))
     folder_num = num // 1000
     subfolder_num = (num % 1000) // 100
     
