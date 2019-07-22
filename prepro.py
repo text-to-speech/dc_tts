@@ -33,5 +33,5 @@ for fpath in tqdm.tqdm(fpaths):
     os.makedirs(hp.data+"mels/"+str(folder_num)+"/"+str(subfolder_num), exist_ok=True)
     os.makedirs(hp.data+"mags/"+str(folder_num)+"/"+str(subfolder_num), exist_ok=True)
     
-    np.save(hp.data+"mels/"+str(folder_num)+"/"+str(subfolder_num)+"/"+"{}".format(fname.replace("wav", "npy")), mel)
-    np.save(hp.data+"mags/"+str(folder_num)+"/"+str(subfolder_num)+"/"+"{}".format(fname.replace("wav", "npy")), mag)
+    np.save(hp.data+"mels/"+str(folder_num)+"/"+str(subfolder_num)+"/"+"{}".format(fname.replace(".wav", ".npy")), mel)
+    np.save(hp.data+"mags/"+str(folder_num)+"/"+str(subfolder_num)+"/"+"{}".format(fname.replace(".wav", ".npy")), mag)
