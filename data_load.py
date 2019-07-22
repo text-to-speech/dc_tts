@@ -57,7 +57,7 @@ def load_data(mode="train"):
 
             return fpaths, text_lengths, texts
         
-        elif "crt" in hp.data:
+        elif "crt" in hp.data or "songs" in hp.data:
             fpaths, text_lengths, texts = [], [], []
             transcript = os.path.join(hp.data, 'transcript.csv')
             lines = codecs.open(transcript, 'r', 'utf-8').readlines()
