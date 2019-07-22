@@ -32,7 +32,7 @@ class Hyperparams:
     attention_win_size = 3
 
     # data
-    data = '/content/drive/My Drive/Research/songs/data/training_data/small_wavs'
+    data = '/content/drive/My Drive/Research/songs/data/training_data/'
     # data = "/data/private/voice/kate"
     test_data = 'test.txt'
     vocab = 'PE abcdefghijklmnopqrstuvwxyz.?!."-,:;()' # P: Padding, E: EOS. #ё?
