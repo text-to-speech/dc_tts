@@ -20,18 +20,18 @@ fpaths, _, _ = load_data() # list
 for fpath in tqdm.tqdm(fpaths):
     fname, mel, mag = load_spectrograms(fpath)
     
-    os.mkdir(hp.data+"mels", exists_ok=True)
-    os.mkdir(hp.data+"mags", exists_ok=True)
+    os.mkdir(hp.data+"mels", exist_ok=True)
+    os.mkdir(hp.data+"mags", exist_ok=True)
         
     num = int(fname.decode("utf-8").split('.')[0].replace('usr', ''))
     folder_num = num // 1000
     subfolder_num = (num % 1000) // 100
     
-    os.mkdir(hp.data+"mels/"+str(folder_num), exists_ok=True)
-    os.mkdir(hp.data+"mags/"+str(folder_num), exists_ok=True)
+    os.mkdir(hp.data+"mels/"+str(folder_num), exist_ok=True)
+    os.mkdir(hp.data+"mags/"+str(folder_num), exist_ok=True)
 
-    os.mkdir(hp.data+"mels/"+str(folder_num)+"/"+str(subfolder_num), exists_ok=True)
-    os.mkdir(hp.data+"mags/"+str(folder_num)+"/"+str(subfolder_num), exists_ok=True)
+    os.mkdir(hp.data+"mels/"+str(folder_num)+"/"+str(subfolder_num), exist_ok=True)
+    os.mkdir(hp.data+"mags/"+str(folder_num)+"/"+str(subfolder_num), exist_ok=True)
     
     np.save(hp.data+"mels/"+str(folder_num)+"/"+str(subfolder_num)+"{}".format(fname.replace("wav", "npy")), mel)
     np.save(hp.data+"mags/"+str(folder_num)+"/"+str(subfolder_num)+"{}".format(fname.replace("wav", "npy")), mag)
