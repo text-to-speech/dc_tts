@@ -122,8 +122,8 @@ def get_batch():
             def _load_spectrograms(fpath):
                 fname = os.path.basename(fpath)
                 _path = fpath.decode("utf-8") 
-                mel = _path.replace("small_wavs/", "mels/").replace("wav", "npy")
-                mag = _path.replace("small_wavs/", "mags/").replace("wav", "npy")
+                mel = _path.replace("small_wavs/", "mels/").replace(".wav", ".npy")
+                mag = _path.replace("small_wavs/", "mags/").replace(".wav", ".npy")
                 return fname, np.load(mel), np.load(mag)
 
             fname, mel, mag = tf.py_func(_load_spectrograms, [fpath], [tf.string, tf.float32, tf.float32])
