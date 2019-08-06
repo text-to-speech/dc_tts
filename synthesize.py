@@ -59,6 +59,7 @@ def synthesize():
 
         # Generate wav files
         if not os.path.exists(hp.sampledir): os.makedirs(hp.sampledir)
+        N_sec = 0
         for i, mag in enumerate(Z):
             print("Working on file", i+1)
             os.makedirs(hp.sampledir+"mags", exist_ok=True)
