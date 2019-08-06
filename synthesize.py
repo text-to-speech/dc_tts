@@ -8,6 +8,7 @@ https://www.github.com/kyubyong/dc_tts
 from __future__ import print_function
 
 import os
+from time import time
 
 from hyperparams import Hyperparams as hp
 import numpy as np
@@ -20,7 +21,7 @@ from tqdm import tqdm
 
 def synthesize():
     # Load data
-    L = load_data("synthesize")
+    L, texts_len = load_data("synthesize")
 
     # Load graph
     g = Graph(mode="synthesize"); print("Graph loaded")
@@ -62,8 +63,14 @@ def synthesize():
             print("Working on file", i+1)
             os.makedirs(hp.sampledir+"mags", exist_ok=True)
             np.save(hp.sampledir + "mags/{}.npy".format(i+1), mag)
+            
+            start = time()
             wav = spectrogram2wav(mag)
+            N_sec += time() - start
+            
             write(hp.sampledir + "/{}.wav".format(i+1), hp.sr, wav)
+            
+        print ("%d seconds".format(N_sec), "%d characters".format(texts_len))
 
 if __name__ == '__main__':
     synthesize()
