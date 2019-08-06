@@ -45,6 +45,7 @@ def synthesize():
         ## mel
         Y = np.zeros((len(L), hp.max_T, hp.n_mels), np.float32)
         prev_max_attentions = np.zeros((len(L),), np.int32)
+        start = time()
         for j in tqdm(range(hp.max_T)):
             _gs, _Y, _max_attentions, _alignments = \
                 sess.run([g.global_step, g.Y, g.max_attentions, g.alignments],
@@ -53,6 +54,7 @@ def synthesize():
                           g.prev_max_attentions: prev_max_attentions})
             Y[:, j, :] = _Y[:, j, :]
             prev_max_attentions = _max_attentions[:, j]
+        M_sec = time() - start
 
         # Get magnitude
         Z = sess.run(g.Z, {g.Y: Y})
@@ -71,7 +73,7 @@ def synthesize():
             
             write(hp.sampledir + "/{}.wav".format(i+1), hp.sr, wav)
             
-        print ("%d seconds".format(N_sec), "%d characters".format(texts_len))
+        print ("{} text_to_mel seconds".format(M_sec), "{} mel_to_wav seconds".format(N_sec), "{} characters".format(texts_len))
 
 if __name__ == '__main__':
     synthesize()
