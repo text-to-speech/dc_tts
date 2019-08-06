@@ -98,9 +98,11 @@ def load_data(mode="train"):
         lines = codecs.open(hp.test_data, 'r', 'utf-8').readlines()
         sents = [text_normalize(line.strip()) + "E" for line in lines] # text normalization, E: EOS
         texts = np.zeros((len(sents), hp.max_N), np.int32)
+        texts_len = 0
         for i, sent in enumerate(sents):
             texts[i, :len(sent)] = [char2idx[char] for char in sent]
-        return texts
+            texts_len += len(sent)
+        return texts, texts_len
 
 def get_batch():
     """Loads training data and put them in queues"""
